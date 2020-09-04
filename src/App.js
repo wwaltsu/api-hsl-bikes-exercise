@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
+
 const App = () => {
   const [data, setData] = useState([])
 
@@ -24,8 +25,8 @@ const App = () => {
           <thead>
             <tr>
               <th>Aseman nimi</th>
-              <th>Pyöriä saatavilla</th>
-              <th>Paikkoja vapaana</th>
+              <th>Pyöriä vapaana</th>
+              <th>Telakoita vapaana</th>
             </tr>
           </thead>
           <tbody>
