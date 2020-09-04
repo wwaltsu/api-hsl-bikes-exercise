@@ -7,7 +7,7 @@ const App = () => {
     fetch("https://api.citybik.es/v2/networks/citybikes-helsinki")
     .then(res => res.json())
     .then(res => setData(res.network.stations) )
-  }, [])
+  }, []) 
   
   const listBikes = () => data.map(e => 
     <tr key={e.name}>
