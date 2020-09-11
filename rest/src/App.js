@@ -12,12 +12,11 @@ const App = () => {
     .then(res => setBikes(res.network.stations) )
   }, [])
   return (
-    <Map center={DEFAULT_LATITUDE, DEFAULT_LONGITUDE}>
+    <Map center={[DEFAULT_LATITUDE, DEFAULT_LONGITUDE]} zoom={13}>
       <TileLayer
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       attribution="&copy; < a href=http://osm.org/copyright>
       OpenStreetMap</a> contributors"/>
-    <TileLayer/>
     </Map>
   )
 }
