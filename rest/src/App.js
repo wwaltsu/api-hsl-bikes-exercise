@@ -6,6 +6,7 @@ import ProgressBar from 'react-bootstrap/ProgressBar'
 const DEFAULT_LONGITUDE = 24.826430
 const DEFAULT_LATITUDE = 60.179690
 const position = [DEFAULT_LATITUDE, DEFAULT_LONGITUDE]
+//{station.free_bikes/(station.free_bikes + station.empty_slots)*100}
 /*
 <p>Pyöriä vapaana asemalla tällä hetkellä {""}  
           {station.free_bikes} / 
@@ -20,19 +21,21 @@ const App = () => {
     .then(res => setBikes(res.network.stations) )
   }, [])
 
- 
-
-  const bikes_stations = () => bikes.map(station =>
-  <Marker position = {[station.latitude, station.longitude]}>
-       <Popup>
-         <h3>{station.name}</h3>
-          Pyöriä vapaana asemalla tällä hetkellä {""}  
-          {station.free_bikes} / 
-          {station.empty_slots + station.free_bikes}
-          <ProgressBar variant="success" animated now = 
-          {station.free_bikes/(station.free_bikes + station.empty_slots)*100} />
-      </Popup>
-    </Marker>
+  const bikes_stations = () => bikes.map(station => {
+    const percent = station.free_bikes/(station.free_bikes + station.empty_slots)*100
+      return (
+        <Marker position = {[station.latitude, station.longitude]}>
+          <Popup>
+            <h4>{station.name}</h4>
+              Pyöriä vapaana asemalla tällä hetkellä {""}
+              {station.free_bikes} / 
+              {station.empty_slots + station.free_bikes}
+              <ProgressBar variant={ percent < 30 ? "danger":  percent < 50 ? "warning": "success" } 
+              animated now = {percent} />
+          </Popup>
+        </Marker>
+      )
+    }
   )
   return (
     <div>
