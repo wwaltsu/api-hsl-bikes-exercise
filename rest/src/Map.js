@@ -28,10 +28,11 @@ const App = () => {
           <Popup>
             <h4>{station.name}</h4>
               Pyöriä vapaana asemalla tällä hetkellä {""}
-              {station.free_bikes} / 
+              {station.free_bikes} / {""}
               {station.empty_slots + station.free_bikes}
               <ProgressBar variant={ percent < 30 ? "danger":  percent < 50 ? "warning": "success" } 
               animated now = {percent} />
+              Tyhjiä paikkoja jäljellä {station.empty_slots}
           </Popup>
         </Marker>
       )

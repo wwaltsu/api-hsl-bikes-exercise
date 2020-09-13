@@ -1,6 +1,7 @@
 body {
     margin: 0;
-    background-color: gold !important;
+    background-color: grey !important;
+    font-weight: bold !important;
     
 }
 .leaflet-container{
@@ -11,7 +12,8 @@ body {
     text-align: center !important;
 }
 .spaces {
-    margin-right: 1050px;
+    margin-right: 1000px;
     color: blue;
+    font-size: 2.5vh;
 }
 
