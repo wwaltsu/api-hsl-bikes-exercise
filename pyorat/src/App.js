@@ -10,11 +10,11 @@ const App = () => {
     .then(res => setData(res.network.stations) )
   }, []) 
   
-  const listBikes = () => data.map(e => 
-    <tr key={e.name}>
-      <td>{e.name}</td>
-      <td>{e.free_bikes}</td>
-      <td>{e.empty_slots}</td>
+  const listBikes = () => data.map(station => 
+    <tr key={station.name}>
+      <td>{station.name}</td>
+      <td>{station.free_bikes}</td>
+      <td>{station.empty_slots}</td>
     </tr>
     )
   
@@ -24,7 +24,7 @@ const App = () => {
         <table className="table table-striped table-sm">
           <thead>
             <tr>
-              <th>Aseman nimi</th>
+              <th>Aseman nimi {""} {""}</th>
               <th>Pyöriä vapaana</th>
               <th>Telakoita vapaana</th>
             </tr>
