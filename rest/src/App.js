@@ -10,10 +10,6 @@ import Pyorat from './Pyorat'
 
 const App = () => {
     
-    const padding = {
-        padding: 5
-    }
-
     return (
         <div className="container">
             <Router>
